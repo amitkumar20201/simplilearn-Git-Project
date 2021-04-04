@@ -1,0 +1,60 @@
+labsuser@ubuntu1804:~$ mkdir simplilearn-Git-Project
+labsuser@ubuntu1804:~$ cd simplilearn-Git-Project/
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git init
+Initialized empty Git repository in /home/labsuser/simplilearn-Git-Project/.git/
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ touch help.txt
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git add help.txt 
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git commit -m "M1 - file checked in to master branch."
+[master (root-commit) 4673085] M1 - file checked in to master branch.
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 help.txt
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ ^C
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git remote add origin https://github.com/amitkumar20201/simplilearn-Git-Project.git
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git remote -v
+origin	https://github.com/amitkumar20201/simplilearn-Git-Project.git (fetch)
+origin	https://github.com/amitkumar20201/simplilearn-Git-Project.git (push)
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
+On branch master
+nothing to commit, working tree clean
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+4673085 (HEAD -> master) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git push origin main
+error: src refspec main does not match any.
+error: failed to push some refs to 'https://github.com/amitkumar20201/simplilearn-Git-Project.git'
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git push origin master
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 237 bytes | 59.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/amitkumar20201/simplilearn-Git-Project.git
+ * [new branch]      master -> master
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git branch hotfix
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git branch integration
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout integration
+Switched to branch 'integration'
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
+On branch integration
+nothing to commit, working tree clean
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+4673085 (HEAD -> integration, origin/master, master, hotfix) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout -b Feature1 integration
+Switched to a new branch 'Feature1'
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
+On branch Feature1
+nothing to commit, working tree clean
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git branch
+* Feature1
+  hotfix
+  integration
+  master
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+4673085 (HEAD -> Feature1, origin/master, master, integration, hotfix) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout integration
+Switched to branch 'integration'
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout -b Feature2 integration
+Switched to a new branch 'Feature2'
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git branch
+  Feature1
+* Feature2
+  hotfix
+  integration
+  master
