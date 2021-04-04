@@ -41,11 +41,13 @@ Switched to a new branch 'Feature1'
 labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
 On branch Feature1
 nothing to commit, working tree clean
+** Added from Feature1
 labsuser@ubuntu1804:~/simplilearn-Git-Project$ git branch
 * Feature1
   hotfix
   integration
   master
+<<<<<<< HEAD
 labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
 4673085 (HEAD -> Feature1, origin/master, master, integration, hotfix) M1 - file checked in to master branch.
 labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout integration
@@ -58,3 +60,6 @@ labsuser@ubuntu1804:~/simplilearn-Git-Project$ git branch
   hotfix
   integration
   master
+=======
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ 
+>>>>>>> F1.1 - help.txt modified from Feature1 branch.
