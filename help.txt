@@ -60,3 +60,181 @@ labsuser@ubuntu1804:~/simplilearn-Git-Project$ git branch
   integration
   master
 labsuser@ubuntu1804:~/simplilearn-Git-Project$ 
+
+ad11289 (origin/integration, master, hotfix) F2.2 - F2.txt added from Feature2 branch.
+af793af Feature2 checked in - Modified help file from feature2 branch.
+4673085 (origin/master, origin/hotfix, origin/Feature1) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git branch
+  Feature1
+  hotfix
+* integration
+  master
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout hotfix
+Switched to branch 'hotfix'
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+ad11289 (HEAD -> hotfix, origin/integration, master) F2.2 - F2.txt added from Feature2 branch.
+af793af Feature2 checked in - Modified help file from feature2 branch.
+4673085 (origin/master, origin/hotfix, origin/Feature1) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git merge Feature1
+Updating ad11289..253dc85
+Fast-forward
+ f1.txt   | 0
+ help.txt | 5 +++++
+ 2 files changed, 5 insertions(+)
+ create mode 100644 f1.txt
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+253dc85 (HEAD -> hotfix, integration, Feature1) F1.2 - add file from Feature1.
+09cca88 F1.2 - Resolved Merged conflicts.
+ad11289 (origin/integration, master) F2.2 - F2.txt added from Feature2 branch.
+af793af Feature2 checked in - Modified help file from feature2 branch.
+4673085 (origin/master, origin/hotfix, origin/Feature1) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
+On branch hotfix
+nothing to commit, working tree clean
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout master
+Switched to branch 'master'
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ clear
+
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+ad11289 (HEAD -> master, origin/integration) F2.2 - F2.txt added from Feature2 branch.
+af793af Feature2 checked in - Modified help file from feature2 branch.
+4673085 (origin/master, origin/hotfix, origin/Feature1) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git branch
+  Feature1
+  hotfix
+  integration
+* master
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git merge Feature1
+Updating ad11289..253dc85
+Fast-forward
+ f1.txt   | 0
+ help.txt | 5 +++++
+ 2 files changed, 5 insertions(+)
+ create mode 100644 f1.txt
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+253dc85 (HEAD -> master, integration, hotfix, Feature1) F1.2 - add file from Feature1.
+09cca88 F1.2 - Resolved Merged conflicts.
+ad11289 (origin/integration) F2.2 - F2.txt added from Feature2 branch.
+af793af Feature2 checked in - Modified help file from feature2 branch.
+4673085 (origin/master, origin/hotfix, origin/Feature1) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git branch -d Feature1
+Deleted branch Feature1 (was 253dc85).
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
+On branch master
+nothing to commit, working tree clean
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log -all --decorate --oneline --graph
+fatal: unrecognized argument: -all
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --all --decorate --oneline --graph
+* 253dc85 (HEAD -> master, integration, hotfix) F1.2 - add file from Feature1.
+* 09cca88 F1.2 - Resolved Merged conflicts.
+* ad11289 (origin/integration) F2.2 - F2.txt added from Feature2 branch.
+* af793af Feature2 checked in - Modified help file from feature2 branch.
+* 4673085 (origin/master, origin/hotfix, origin/Feature1) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
+On branch master
+nothing to commit, working tree clean
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   help.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git commit -am "master check in -resolved conflicts"
+[master 085d83d] master check in -resolved conflicts
+ 1 file changed, 3 deletions(-)
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
+On branch master
+nothing to commit, working tree clean
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+085d83d (HEAD -> master) master check in -resolved conflicts
+253dc85 (integration, hotfix) F1.2 - add file from Feature1.
+09cca88 F1.2 - Resolved Merged conflicts.
+ad11289 (origin/integration) F2.2 - F2.txt added from Feature2 branch.
+af793af Feature2 checked in - Modified help file from feature2 branch.
+4673085 (origin/master, origin/hotfix, origin/Feature1) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout integration
+Switched to branch 'integration'
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
+On branch integration
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   help.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git commit -am "integraiton checked in"
+[integration 747e7e9] integraiton checked in
+ 1 file changed, 3 deletions(-)
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
+On branch integration
+nothing to commit, working tree clean
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+747e7e9 (HEAD -> integration) integraiton checked in
+253dc85 (hotfix) F1.2 - add file from Feature1.
+09cca88 F1.2 - Resolved Merged conflicts.
+ad11289 (origin/integration) F2.2 - F2.txt added from Feature2 branch.
+af793af Feature2 checked in - Modified help file from feature2 branch.
+4673085 (origin/master, origin/hotfix, origin/Feature1) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout hotfi
+error: pathspec 'hotfi' did not match any file(s) known to git.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout hotfix
+Switched to branch 'hotfix'
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git commit -am "hotfix checked in"
+[hotfix 3407481] hotfix checked in
+ 1 file changed, 3 deletions(-)
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git status
+On branch hotfix
+nothing to commit, working tree clean
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+3407481 (HEAD -> hotfix) hotfix checked in
+253dc85 F1.2 - add file from Feature1.
+09cca88 F1.2 - Resolved Merged conflicts.
+ad11289 (origin/integration) F2.2 - F2.txt added from Feature2 branch.
+af793af Feature2 checked in - Modified help file from feature2 branch.
+4673085 (origin/master, origin/hotfix, origin/Feature1) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout integration
+Switched to branch 'integration'
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git merge hotfix
+Merge made by the 'recursive' strategy.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+c4cc76b (HEAD -> integration) Merge branch 'hotfix' into integration
+3407481 (hotfix) hotfix checked in
+747e7e9 integraiton checked in
+253dc85 F1.2 - add file from Feature1.
+09cca88 F1.2 - Resolved Merged conflicts.
+ad11289 (origin/integration) F2.2 - F2.txt added from Feature2 branch.
+af793af Feature2 checked in - Modified help file from feature2 branch.
+4673085 (origin/master, origin/hotfix, origin/Feature1) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git checkout master
+Switched to branch 'master'
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git merge integration
+Merge made by the 'recursive' strategy.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git log --oneline
+65e7f21 (HEAD -> master) Merge branch 'integration'
+c4cc76b (integration) Merge branch 'hotfix' into integration
+3407481 (hotfix) hotfix checked in
+747e7e9 integraiton checked in
+085d83d master check in -resolved conflicts
+253dc85 F1.2 - add file from Feature1.
+09cca88 F1.2 - Resolved Merged conflicts.
+ad11289 (origin/integration) F2.2 - F2.txt added from Feature2 branch.
+af793af Feature2 checked in - Modified help file from feature2 branch.
+4673085 (origin/master, origin/hotfix, origin/Feature1) M1 - file checked in to master branch.
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git push -all
+error: did you mean `--all` (with two dashes ?)
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ git push --all
+Counting objects: 12, done.
+Delta compression using up to 8 threads.
+Compressing objects: 100% (12/12), done.
+Writing objects: 100% (12/12), 1.36 KiB | 463.00 KiB/s, done.
+Total 12 (delta 6), reused 0 (delta 0)
+remote: Resolving deltas: 100% (6/6), completed with 1 local object.
+To https://github.com/amitkumar20201/simplilearn-Git-Project.git
+   4673085..3407481  hotfix -> hotfix
+   ad11289..c4cc76b  integration -> integration
+   4673085..65e7f21  master -> master
+labsuser@ubuntu1804:~/simplilearn-Git-Project$ 
